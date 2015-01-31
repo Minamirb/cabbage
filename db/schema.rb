@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131040034) do
+ActiveRecord::Schema.define(version: 20150131040802) do
 
-  create_table "areas", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "prefecture_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
+
+  add_index "cities", ["prefecture_id"], name: "index_cities_on_prefecture_id"
 
   create_table "costs", force: :cascade do |t|
     t.integer  "price"
